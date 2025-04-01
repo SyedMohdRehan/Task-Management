@@ -30,8 +30,8 @@ const TaskDetailsScreen = () => {
           setEditedTitle(data.title);
           setEditedDescription(data.description);
         } else {
-          console.error('Failed to fetch task details:', data);
-          Alert.alert('Error', 'Failed to fetch task details');
+          console.log('Failed to fetch task details:', data);
+          Alert.alert('Notice', 'No task details Found in data base ');
         }
       } catch (error) {
         console.error('Error fetching task details:', error);

@@ -5,8 +5,8 @@ import InitalRoute from './InitalRoute';
 
 export default function RootLayout() {
     return (
-        <>
-            <InitalRoute />
+        <><InitalRoute />
+            
             <Stack
                 screenOptions={{
                   headerShown: false, // This hides the header for all tabs

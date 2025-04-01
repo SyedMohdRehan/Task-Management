@@ -26,10 +26,10 @@ const HomeScreen = () => {
       if (response.ok) {
         setTasks(data);
       } else {
-        console.error('Failed to fetch tasks:', data);
+        console.log('Failed to fetch tasks:', data);
       }
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      console.alert('Error fetching tasks:', error);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -40,9 +40,9 @@ const HomeScreen = () => {
     fetchTasks();
   }, [fetchTasks]);
 
-  const renderItem = ({ item }) => (
-    <Button title={item.title} onPress={() => router.push(`/(tabs)/TaskDetailsScreen?taskId=${item._id}`)} />
-    
+  const renderItem = ({ item }) => (<View style={styles.tasks}>
+    <Button title={item.title} onPress={() => router.push(`../TaskDetailsScreen?taskId=${item._id}`)} />
+    </View>
   );
 
   if (loading) {
@@ -61,7 +61,7 @@ const HomeScreen = () => {
       <FlatList
         data={tasks}
         renderItem={renderItem}
-        keyExtractor={(item) => item?.id?.toString()}
+        keyExtractor={(item) => item?._id?.toString()}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={fetchTasks} />}
       />
     </View>
@@ -77,7 +77,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  },task:{
+    gap:10,
+    flexDirection:"column"
+  }
 });
 
 export default HomeScreen;

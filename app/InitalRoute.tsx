@@ -12,10 +12,12 @@ export default function InitalRoute() {
         const checkToken = async () => {
             try {
                 const token = await AsyncStorage.getItem('userToken');
-                if (token) {
-                    router.replace('/(tabs)'); // Navigate to tabs
-                } else {
+                console.log("Token user",token)
+                if (!token) {
                     router.replace('/LoginScreen'); // Navigate to LoginScreen
+                    
+                } else {
+                    router.replace('/(tabs)'); // Navigate to tabs
                 }
             } catch (error) {
                 console.error('Error checking token:', error);

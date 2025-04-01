@@ -1,8 +1,9 @@
 // LoginScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert,TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -38,8 +39,8 @@ const LoginScreen = () => {
             <Text style={styles.title}>Login</Text>
             <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
             <TextInput style={styles.input} placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} />
-            <Button title="Login" onPress={handleLogin} />
-            <Button title="Signup" onPress={() => router.replace('SignupScreen')} />
+            <View style={styles.inline}><TouchableOpacity style={styles.button} onPress={handleLogin}><Text style={styles.buttonText}>LOGIN</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button}  onPress={() => router.replace('SignupScreen')} ><Text style={styles.buttonText}>SIGNUP</Text></TouchableOpacity></View>
         </View>
     );
 };
@@ -64,7 +65,24 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginBottom: 10,
         paddingHorizontal: 10,
+        borderRadius:5
     },
+    inline:{ 
+        flexDirection:"row",
+        gap:10   
+    },
+    button:{
+        width:scale(151),
+        backgroundColor:"#f60",
+        alignItems:'center',
+        borderRadius:5,
+        borderWidth:.1,
+        padding:10
+    },
+    buttonText:{
+        fontWeight:700,
+        color:"white"
+    }
 });
 
 export default LoginScreen;
