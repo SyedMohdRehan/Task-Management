@@ -16,7 +16,7 @@ const HomeScreen = () => {
     try {
       const token = await AsyncStorage.getItem('userToken');
       console.log('Token:', token)
-      const response = await fetch('http://192.168.29.122:5000/tasks', {
+      const response = await fetch('https://task-management-backendd-wth8.onrender.com/tasks', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

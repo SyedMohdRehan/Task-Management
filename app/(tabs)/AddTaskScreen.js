@@ -15,7 +15,7 @@ const AddTaskScreen = () => {
       console.log('Token (AddTaskScreen):', token)
       console.log('Request Body:', JSON.stringify({ title, description })); // Log the request body
 
-      const response = await fetch('http://192.168.29.122:5000/tasks', {
+      const response = await fetch('https://task-management-backendd-wth8.onrender.com/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

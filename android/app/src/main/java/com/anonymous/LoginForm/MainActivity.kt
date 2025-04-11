@@ -1,4 +1,4 @@
-package com.anonymous.LoginForm
+package com.anonymous.Task-Management
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

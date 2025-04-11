@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, StyleSheet, Alert,TouchableOpacity } fro
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { useTheme } from 'react-native-paper';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const LoginScreen = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://192.168.29.122:5000/auth/login', { // Replace with your backend URL
+            const response = await fetch('https://task-management-backendd-wth8.onrender.com/auth/login', { // Replace with your backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+      
         padding: 20,
     },
     title: {

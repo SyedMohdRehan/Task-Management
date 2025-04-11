@@ -19,7 +19,7 @@ const TaskDetailsScreen = () => {
       setLoading(true);
       try {
         const token = await AsyncStorage.getItem('userToken');
-        const response = await fetch(`http://192.168.29.122:5000/tasks/${taskId}`, {
+        const response = await fetch(`https://task-management-backendd-wth8.onrender.com/tasks/${taskId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ const TaskDetailsScreen = () => {
   const handleEditTask = async () => {
     try {
       const token = await AsyncStorage.getItem('userToken');
-      const response = await fetch(`http://192.168.29.122:5000/tasks/${taskId}`, {
+      const response = await fetch(`https://task-management-backendd-wth8.onrender.com/tasks/${taskId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const TaskDetailsScreen = () => {
   const handleDeleteTask = async () => {
     try {
       const token = await AsyncStorage.getItem('userToken');
-      const response = await fetch(`http://192.168.29.122:5000/tasks/${taskId}`, {
+      const response = await fetch(`https://task-management-backendd-wth8.onrender.com/tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
